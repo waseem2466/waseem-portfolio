@@ -1,1 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waseem Khan Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      /* Subtle background gradient animation for a 'liquid' feel */
+      background: linear-gradient(135deg, #e0f2fe, #e3f2fd, #bbdefb, #90caf9);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Custom scroll-behavior for smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Simple fade-in animation for sections */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Glassmorphism effect */
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.2); /* Slightly transparent white */
+      backdrop-filter: blur(10px) saturate(180%); /* Frosted glass effect */
+      -webkit-backdrop-filter: blur(10px) saturate(180%); /* For Safari */
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1); /* Soft shadow */
+      border-radius: 2rem; /* More rounded corners for a modern look */
+    }
+
+    /* Navbar specific glass effect */
+    .navbar-glass {
+      background: rgba(255, 255, 255, 0.8); /* Less transparent for readability */
+      backdrop-filter: blur(8px) saturate(180%);
+      -webkit-backdrop-filter: blur(8px) saturate(180%);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 0 0 1.5rem 1.5rem; /* Rounded bottom corners only */
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- Navbar -->
+  <header class="navbar-glass sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-800">Waseem Khan</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#about" class="text-gray-700 hover:text-blue-700 transition duration-300 ease-in-out font-medium">About</a>
+        <a href="#experience" class="text-gray-700 hover:text-blue-700 transition duration-300 ease-in-out font-medium">Experience</a>
+        <a href="#education" class="text-gray-700 hover:text-blue-700 transition duration-300 ease-in-out font-medium">Education</a>
+        <a href="#skills" class="text-gray-700 hover:text-blue-700 transition duration-300 ease-in-out font-medium">Skills</a>
+        <a href="#projects" class="text-gray-700 hover:text-blue-700 transition duration-300 ease-in-out font-medium">Projects</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-700 transition duration-300 ease-in-out font-medium">Contact</a>
+      </nav>
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-8">
+      <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-700 hover:text-blue-700 focus:outline-none">
+        <i class="fas fa-times text-3xl"></i>
+      </button>
+      <a href="#about" class="text-3xl text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+      <a href="#experience" class="text-3xl text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Experience</a>
+      <a href="#education" class="text-3xl text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Education</a>
+      <a href="#skills" class="text-3xl text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a>
+      <a href="#projects" class="text-3xl text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a>
+      <a href="#contact" class="text-3xl text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-24 px-6">
+    <div class="max-w-3xl mx-auto glass-effect p-8 fade-in">
+      <h2 class="text-5xl font-extrabold text-blue-900 mb-6 leading-tight">Hi, I'm Waseem Khan</h2>
+      <p class="text-xl text-gray-800 mb-8 max-w-2xl mx-auto">
+        An <span class="font-semibold text-blue-800">Electrical Engineer</span> with a passion for
+        <span class="font-semibold text-blue-800">Elevator Technology</span>,
+        <span class="font-semibold text-blue-800">IT Support</span>, and crafting
+        <span class="font-semibold text-blue-800">Modern Web Applications</span>.
+        I transform complex problems into elegant, user-friendly solutions.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+        <a href="#projects" class="inline-block bg-blue-700 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-800 transform hover:scale-105 transition duration-300 ease-in-out font-semibold text-lg">
+          View My Projects <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <a href="#contact" class="inline-block bg-white text-blue-700 border border-blue-700 px-8 py-3 rounded-full shadow-lg hover:bg-blue-50 transform hover:scale-105 transition duration-300 ease-in-out font-semibold text-lg">
+          Get in Touch <i class="fas fa-envelope ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">About Me</h2>
+    <div class="glass-effect p-8">
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        As an Electrical Engineer, I've honed my problem-solving skills in diverse environments, from the intricate mechanics of elevator systems to the dynamic challenges of IT technical support. My journey has equipped me with a unique blend of analytical thinking and practical application.
+      </p>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        I bring a strong foundation in electrical systems and a keen eye for detail, complemented by hands-on experience in IT support. My professional path has allowed me to develop a robust understanding of both hardware and software, enabling me to tackle technical challenges effectively.
+      </p>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Beyond traditional engineering, I've developed a strong passion for web development. I specialize in building responsive, efficient, and user-centric web applications using modern technologies like HTML, Tailwind CSS, and Firebase. I thrive on creating solutions that not only look great but also deliver tangible value. I'm always eager to learn new technologies and apply them to solve real-world problems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Work Experience</h2>
+    <div class="glass-effect p-8 space-y-8">
+      <!-- Experience 1 -->
+      <div class="border-b border-gray-200 pb-6 last:border-b-0">
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">Engineer</h3>
+        <p class="text-lg text-gray-700 mb-1">Trade Promoters Private Limited</p>
+        <p class="text-md text-gray-600 mb-3">June 25, 2023 – Present</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Currently contributing to advanced electrical system projects and maintenance.</li>
+          <li>Overseeing installation, commissioning, and maintenance of various electrical systems.</li>
+          <li>Conducting fault diagnosis and implementing corrective actions to minimize downtime.</li>
+          <li>Ensuring compliance with safety standards and industry regulations.</li>
+          <li>Collaborating with cross-functional teams to optimize system performance and reliability.</li>
+          <li>Providing technical guidance and support to junior engineers and technicians.</li>
+        </ul>
+      </div>
+
+      <!-- Experience 2 -->
+      <div class="border-b border-gray-200 pb-6 last:border-b-0">
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">Professional Trainee Assistant Engineer (Electrical System Maintenance)</h3>
+        <p class="text-lg text-gray-700 mb-1">Trade Promoters Private Limited</p>
+        <p class="text-md text-gray-600 mb-3">September 18, 2022 – June 25, 2023</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Gained hands-on experience in maintaining and troubleshooting electrical systems.</li>
+          <li>Assisted senior engineers in various maintenance and repair tasks, including preventive and corrective maintenance.</li>
+          <li>Conducted routine inspections and performance checks on electrical equipment.</li>
+          <li>Documented maintenance activities and reported findings to supervisors.</li>
+          <li>Developed practical skills in electrical diagnostics, system optimization, and safety protocols.</li>
+        </ul>
+      </div>
+
+      <!-- Experience 3 -->
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">IT Desk Assistant (Intern)</h3>
+        <p class="text-lg text-gray-700 mb-1">Trade Promoters Private Limited</p>
+        <p class="text-md text-gray-600 mb-3">March 18, 2022 – September 18, 2022</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Provided technical support and troubleshooting for IT-related issues, including hardware and software.</li>
+          <li>Managed user queries and ensured smooth operation of IT infrastructure and network systems.</li>
+          <li>Assisted with software installations, updates, and system configurations.</li>
+          <li>Maintained inventory of IT assets and managed basic network connectivity.</li>
+          <li>Developed strong communication and problem-solving skills in a professional IT environment.</li>
+          <li>Contributed to improving user satisfaction through timely and effective support.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-16 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Education</h2>
+    <div class="glass-effect p-8 space-y-8">
+      <!-- Education 1: Postgraduate Diploma in Business Management -->
+      <div class="border-b border-gray-200 pb-6 last:border-b-0">
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">Postgraduate Diploma in Business Management</h3>
+        <p class="text-lg text-gray-700 mb-1">IMSL – Institute Of Management Sri Lanka – Empowering Managers</p>
+        <p class="text-md text-gray-600 mb-3">Completed June 2025</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Completed advanced studies in business management.</li>
+          <li>Gained expertise in strategic planning, leadership, and organizational development.</li>
+        </ul>
+      </div>
+
+      <!-- Education 2: NVQ Level 6 -->
+      <div class="border-b border-gray-200 pb-6 last:border-b-0">
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">NVQ Level 6 in Electrical Technology</h3>
+        <p class="text-lg text-gray-700 mb-1">University College of Ratmalana</p>
+        <p class="text-md text-gray-600 mb-3">2018 – 2022</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Completed advanced vocational training in electrical technology.</li>
+          <li>Gained in-depth knowledge and practical skills in electrical systems and applications.</li>
+        </ul>
+      </div>
+
+      <!-- Education 3: Diploma in IT -->
+      <div class="border-b border-gray-200 pb-6 last:border-b-0">
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">Diploma in IT</h3>
+        <p class="text-lg text-gray-700 mb-1">Esoft Metro Campus</p>
+        <p class="text-md text-gray-600 mb-3">Completed June 2014</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Acquired fundamental IT skills and knowledge.</li>
+          <li>Enhanced digital literacy and problem-solving abilities in IT.</li>
+        </ul>
+      </div>
+
+      <!-- Education 4: G.C.E. Advanced Level -->
+      <div class="border-b border-gray-200 pb-6 last:border-b-0">
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">G.C.E. Advanced Level (Engineering Technology Stream)</h3>
+        <p class="text-lg text-gray-700 mb-1">KU/KIRI/KEKUNAGOLLA NATIONAL SCHOOL</p>
+        <p class="text-md text-gray-600 mb-3">Passed in 2016</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Successfully completed Advanced Level examinations in the Engineering Technology stream.</li>
+          <li>Developed foundational knowledge in engineering principles.</li>
+        </ul>
+      </div>
+
+      <!-- Education 5: G.C.E. Ordinary Level -->
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-900 mb-2">G.C.E. Ordinary Level</h3>
+        <p class="text-lg text-gray-700 mb-1">KU/KIRI/KEKUNAGOLLA NATIONAL SCHOOL</p>
+        <p class="text-md text-gray-600 mb-3">Passed in 2013</p>
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
+          <li>Successfully completed Ordinary Level examinations.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">My Skills</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fab fa-html5 text-3xl text-orange-500"></i>
+        <i class="fab fa-css3-alt text-3xl text-blue-500"></i>
+        <span class="text-lg font-medium">HTML & CSS</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fab fa-tailwind text-3xl text-teal-500"></i>
+        <span class="text-lg font-medium">Tailwind CSS</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-fire text-3xl text-yellow-600"></i>
+        <span class="text-lg font-medium">Firebase</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-headset text-3xl text-purple-600"></i>
+        <span class="text-lg font-medium">IT Technical Support</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-elevator text-3xl text-gray-600"></i>
+        <span class="text-lg font-medium">Elevator Systems</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-bolt text-3xl text-red-600"></i>
+        <span class="text-lg font-medium">Electrical Maintenance</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-project-diagram text-3xl text-blue-600"></i>
+        <span class="text-lg font-medium">Project Management</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-wrench text-3xl text-gray-500"></i>
+        <span class="text-lg font-medium">Troubleshooting</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-users text-3xl text-green-600"></i>
+        <span class="text-lg font-medium">Customer Service</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-file-excel text-3xl text-green-700"></i>
+        <span class="text-lg font-medium">Microsoft Office</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-network-wired text-3xl text-purple-700"></i>
+        <span class="text-lg font-medium">Networking Basics</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-chart-bar text-3xl text-blue-400"></i>
+        <span class="text-lg font-medium">Data Analysis</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-lightbulb text-3xl text-yellow-500"></i>
+        <span class="text-lg font-medium">Problem Solving</span>
+      </div>
+      <!-- Business Management Skills -->
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-chart-line text-3xl text-teal-600"></i>
+        <span class="text-lg font-medium">Strategic Planning</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-handshake text-3xl text-orange-600"></i>
+        <span class="text-lg font-medium">Leadership</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-dollar-sign text-3xl text-green-500"></i>
+        <span class="text-lg font-medium">Financial Management</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-bullhorn text-3xl text-red-500"></i>
+        <span class="text-lg font-medium">Marketing</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-cogs text-3xl text-gray-700"></i>
+        <span class="text-lg font-medium">Operations Management</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-people-group text-3xl text-blue-500"></i>
+        <span class="text-lg font-medium">Team Building</span>
+      </div>
+      <div class="glass-effect p-6 flex items-center space-x-4 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+        <i class="fas fa-comments text-3xl text-purple-500"></i>
+        <span class="text-lg font-medium">Communication</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">My Projects</h2>
+    <div class="glass-effect p-8">
+      <h3 class="text-3xl font-semibold text-blue-900 mb-3">WR Smile Shop</h3>
+      <p class="text-lg text-gray-700 mb-5">
+        A comprehensive web-based shop management system designed to streamline operations. It features robust billing functionalities, efficient loan tracking, and convenient PDF/WhatsApp export options for enhanced business management.
+      </p>
+      <a href="https://waseem2466.github.io/wr-smile-shop/" target="_blank" class="inline-block bg-blue-700 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-800 transform hover:scale-105 transition duration-300 ease-in-out font-semibold text-lg">
+        View Project <i class="fas fa-external-link-alt ml-2"></i>
+      </a>
+    </div>
+    <!-- Add more project cards here if needed -->
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Get in Touch</h2>
+    <div class="glass-effect p-8 text-center">
+      <p class="text-lg text-gray-700 mb-4">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+      <div class="space-y-4 mb-6">
+        <p class="text-xl text-gray-800 flex items-center justify-center">
+          <i class="fas fa-envelope text-blue-700 mr-3"></i>
+          Email: <a href="mailto:waseemkhan2466@gmail.com" class="text-blue-700 hover:underline ml-2">waseemkhan2466@gmail.com</a>
+        </p>
+        <p class="text-xl text-gray-800 flex items-center justify-center">
+          <i class="fas fa-phone-alt text-blue-700 mr-3"></i>
+          Phone: <a href="tel:+94779336848" class="text-blue-700 hover:underline ml-2">0779336848</a>
+        </p>
+      </div>
+      <div class="flex justify-center space-x-6">
+        <!-- Add social media links here -->
+        <a href="https://github.com/waseem2466" target="_blank" class="text-gray-700 hover:text-blue-700 transform hover:scale-125 transition duration-300 ease-in-out" aria-label="GitHub Profile">
+          <i class="fab fa-github text-4xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/waseem-khan-electrical-engineer/" target="_blank" class="text-gray-700 hover:text-blue-700 transform hover:scale-125 transition duration-300 ease-in-out" aria-label="LinkedIn Profile">
+          <i class="fab fa-linkedin text-4xl"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-blue-900 text-white text-center py-6 mt-12 rounded-t-xl shadow-inner">
+    <p class="text-lg">&copy; 2025 Waseem Khan. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const faders = document.querySelectorAll('.fade-in');
+
+      const appearOptions = {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+        rootMargin: "0px 0px -50px 0px" // Adjust to trigger slightly before reaching the bottom
+      };
+
+      const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+
+      // Mobile menu functionality
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+      });
+
+      closeMobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+
+      // Close mobile menu when a link is clicked
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
 
